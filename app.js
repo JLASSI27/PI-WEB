@@ -10,10 +10,10 @@ const cors = require('cors');
 const mongoose= require ("mongoose")
 const configDb = require ("./config/db.json");
 
-var eventsRouter = require('./Routes/event');
-var packsRouter = require('./Routes/pack');
-var reservsRouter = require('./Routes/reservation');
-var servicesRouter = require('./Routes/service');
+var eventsRouter = require('./Routes/events/event');
+var packsRouter = require('./Routes/events/pack');
+var reservsRouter = require('./Routes/events/reservation');
+var servicesRouter = require('./Routes/events/service');
 
 
 

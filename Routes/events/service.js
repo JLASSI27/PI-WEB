@@ -1,10 +1,10 @@
 const express =  require('express');
 const router = express.Router();
-const {Service,servicesSchema} = require('../Models/service');
-const validate = require('../Middlewares/validate');
+const {Service,servicesSchema} = require('../../Models/events/service');
+const validate = require('../../Middlewares/validate');
 const nodemailer = require("nodemailer");
 
-const {addservice , getservice,getserviceByPack,updateService,deleteService} = require('../Controllers/service/serviceController');
+const {addservice , getservice,getserviceByPack,updateService,deleteService} = require('../../Controllers/events/service/serviceController');
 
 router.post('/service', validate(servicesSchema), addservice)
 

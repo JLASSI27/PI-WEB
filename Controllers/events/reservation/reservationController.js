@@ -1,5 +1,5 @@
-const {Reservation} = require('../../Models/reservation');
-const { Event } = require('../../Models/event');
+const {Reservation} = require('../../../Models/events/reservation');
+const { Event } = require('../../../Models/events/event');
 const stripe = require('stripe')('sk_test_51RAK8z4CJsmk8OWqXOkOOrJcPmwWEAU1Xu7H0zUNlYaP3h68ekpGhqbtgD9EmmN7KBEVE5iKRz4mm1Zl2Dnsn9A500n9f4IfU1');
 
 

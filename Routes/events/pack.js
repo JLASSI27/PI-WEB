@@ -1,9 +1,9 @@
 const express =  require('express');
 const router = express.Router();
-const {Pack,packSchema} = require('../Models/pack');
-const validate = require('../Middlewares/validate');
+const {Pack,packSchema} = require('../../Models/events/pack');
+const validate = require('../../Middlewares/validate');
 
-const {addpacks,getpacks,getPackByName,updatePack,deletePack} = require('../Controllers/pack/packController');
+const {addpacks,getpacks,getPackByName,updatePack,deletePack} = require('../../Controllers/events/pack/packController');
 
 
 router.post('/packs', validate(packSchema), addpacks )
