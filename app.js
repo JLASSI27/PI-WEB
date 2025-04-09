@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const express = require('express');
 <<<<<<< HEAD
 const mongoose = require('mongoose');
@@ -62,6 +63,25 @@ app.get("/",  (req, res)=> {
     res.send('<a href="/auth/google">auth with google</a>')
 })
 
+=======
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+const mongoose = require("mongoose");
+const configDb = require("./config/db.json");
+//const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc'); // Remplacez par votre propre clé secrète Stripe
+
+var produitRouter = require('./Routes/produit');
+var commandeRouter = require('./Routes/commande');
+
+var app = express();
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+>>>>>>> origin/ghazi_nasri
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -69,6 +89,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+<<<<<<< HEAD
 app.use("/", indexRoutes);
 
 app.listen(process.env.PORT, () => {
@@ -140,3 +161,47 @@ app.use('/api/reviews', reviewRoutes); // Ajout de la route des avis
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Serveur lancé sur le port ${PORT}`));
 >>>>>>> origin/LMarwa
+=======
+
+
+app.use('/', produitRouter);
+app.use('/', commandeRouter);
+//app.use('/api', commandeRouter);
+app.use('/api', commandeRouter);
+
+// Connexion à MongoDB avec messages de succès et d'échec
+mongoose.connect(configDb.mongo.uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+const db = mongoose.connection;
+
+db.on("connected", () => {
+  console.log(" Connexion à MongoDB réussie !");
+});
+
+db.on("error", (err) => {
+  console.error(" Échec de la connexion à MongoDB :", err);
+});
+
+db.on("disconnected", () => {
+  console.warn(" Connexion à MongoDB interrompue.");
+});
+
+// Gestion des erreurs 404
+app.use(function(req, res, next) {
+  next(createError(404));
+});
+
+// Gestion des erreurs globales
+app.use(function(err, req, res, next) {
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+module.exports = app;
+>>>>>>> origin/ghazi_nasri

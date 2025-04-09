@@ -1,5 +1,14 @@
 {
+<<<<<<< HEAD
   "mongo": {
     "uri": "mongodb://localhost:27017/blog"
   }
 }
+=======
+    "mongo":{
+        "uri":"mongodb://localhost:27017/eventdb"
+    
+    }
+    
+    }
+>>>>>>> origin/ghazi_nasri
