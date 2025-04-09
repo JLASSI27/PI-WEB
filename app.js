@@ -6,8 +6,8 @@ const express = require('express');
 <<<<<<< HEAD
 const mongoose = require('mongoose');
 const dotenv = require('dotenv').config();
-const depotRoutes = require('./Routes/depotRoutes');
-const materielRoutes = require('./Routes/materielRoutes');
+const depotRoutes = require('./Routes/routesJL/depotRoutes');
+const materielRoutes = require('./Routes/routesJL/materielRoutes');
 const errorHandler = require('./Middlewares/middlewaresJL/errorHandler');
 
 const app = express();

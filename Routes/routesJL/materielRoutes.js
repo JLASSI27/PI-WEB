@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const materielController = require('../Controllers/controllersJl/materielController');
+const materielController = require('../../Controllers/controllersJl/materielController');
 
 router.route('/')
     .post(materielController.createMateriel)
