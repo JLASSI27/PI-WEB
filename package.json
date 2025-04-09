@@ -1,6 +1,7 @@
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "name": "nouveau-dossier-(2)",
 =======
   "name": "s4",
@@ -10,10 +11,19 @@
   "scripts": {
     "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+=======
+  "name": "gestion-workshops",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+>>>>>>> origin/LMarwa
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+<<<<<<< HEAD
   "description": "",
   "dependencies": {
     "@google/generative-ai": "^0.24.0",
@@ -60,5 +70,19 @@
     "twig": "^1.17.1",
     "yup": "^1.6.1"
 >>>>>>> origin/meher_moumni
+=======
+  "dependencies": {
+    "@huggingface/inference": "^3.6.2",
+    "axios": "^1.8.4",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-validator": "^7.2.1",
+    "mongoose": "^8.13.1",
+    "nodemailer": "^6.10.0",
+    "nodemon": "^3.1.9",
+    "pdfkit": "^0.16.0"
+>>>>>>> origin/LMarwa
   }
 }

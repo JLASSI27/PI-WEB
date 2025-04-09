@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 const express = require('express');
 <<<<<<< HEAD
 const mongoose = require('mongoose');
@@ -115,3 +116,27 @@ app.listen(3000, () => {
     console.log('Server is running on http://localhost:3000');
 });
 >>>>>>> origin/meher_moumni
+=======
+const express = require('express');
+const cors = require('cors');
+const connectDB = require('./config/database');
+const workshopRoutes = require('./Routes/workshop/workshoproutes');
+const enrollmentRoutes = require('./Routes/workshop/enrollmentroutes');
+const reviewRoutes = require('./Routes/workshop/reviewroutes'); // Ajout des Routes d'avis
+
+require('dotenv').config();
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+connectDB();
+
+// Routes
+app.use('/api/workshops', workshopRoutes);
+app.use('/api/enrollments', enrollmentRoutes);
+app.use('/api/reviews', reviewRoutes); // Ajout de la route des avis
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Serveur lancé sur le port ${PORT}`));
+>>>>>>> origin/LMarwa
