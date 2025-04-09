@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const { Produit, produitValidationSchema } = require('../models/produit'); 
-const validate = require('../middleweares/validate');
+const { Produit, produitValidationSchema } = require('../Models/produit'); 
+const validate = require('../Middleweares/validate');
 
 const {addproduit,getproduit,deleteproduit, updateproduit, getproduitById} = require('../controllers/produit/produitContoller'); 
 

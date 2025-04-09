@@ -1,7 +1,7 @@
 
 
 
-const { Produit } = require('../../models/produit'); 
+const { Produit } = require('../../Models/produit'); 
 
 
 

@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-const { Commande } = require('../models/commande');
-const { Produit } = require('../models/produit');
-const stripe = require('stripe')('sk_test_51RAZ7yQQRVoj1jFFeHt6JbC4ZxFWNgu3BhbJimenhXfSVROReopVIpCUg6VPOlHZL4tQtqfe7wmzgnMm2bJJgiwI001D7CQSmH');
+const { Commande } = require('../Models/commande');
+const { Produit } = require('../Models/produit');
+//const stripe = require('stripe')('sk_test_51RAZ7yQQRVoj1jFFeHt6JbC4ZxFWNgu3BhbJimenhXfSVROReopVIpCUg6VPOlHZL4tQtqfe7wmzgnMm2bJJgiwI001D7CQSmH');
 
 const {addcommande,getcommande,getcommandeByid,deletetcommande,updatecommande,addpaiement,CommandePDF,sendCommandePDFByEmail } = require('../controllers/commande/commandeController'); 
 

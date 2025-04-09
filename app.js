@@ -7,8 +7,8 @@ const mongoose = require("mongoose");
 const configDb = require("./config/db.json");
 //const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc'); // Remplacez par votre propre clé secrète Stripe
 
-var produitRouter = require('./routes/produit');
-var commandeRouter = require('./routes/commande');
+var produitRouter = require('./Routes/produit');
+var commandeRouter = require('./Routes/commande');
 
 var app = express();
 
