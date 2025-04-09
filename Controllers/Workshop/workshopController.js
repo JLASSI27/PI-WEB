@@ -1,6 +1,6 @@
-const Workshop = require('../../models/workshop/Workshop');
-const Enrollment = require('../../models/workshop/Enrollment');
-const Review = require('../../models/workshop/Review');  // Assurez-vous que ce modèle est importé
+const Workshop = require('../../Models/workshop/Workshop');
+const Enrollment = require('../../Models/workshop/Enrollment');
+const Review = require('../../Models/workshop/Review');  // Assurez-vous que ce modèle est importé
 
 exports.createWorkshop = async (req, res) => {
     try {
@@ -76,18 +76,18 @@ exports.recommendWorkshops = async (req, res) => {
     }
 };
 
-// Fonction pour obtenir la moyenne des avis d'un workshop
+// Fonction pour obtenir la moyenne des avis d'un Workshop
 exports.getWorkshopAverageRating = async (req, res) => {
     try {
         const { workshopId } = req.params;
 
-        // Récupérer le workshop
+        // Récupérer le Workshop
         const workshop = await Workshop.findById(workshopId);
         if (!workshop) {
             return res.status(404).json({ message: "Workshop non trouvé" });
         }
 
-        // Récupérer tous les avis pour ce workshop
+        // Récupérer tous les avis pour ce Workshop
         const reviews = await Review.find({ workshopId });
 
         // Calculer la moyenne des notes

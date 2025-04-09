@@ -1,7 +1,7 @@
 
 const axios = require('axios');
-const Review = require('../../models/workshop/Review');
-const Workshop = require('../../models/workshop/Workshop');
+const Review = require('../../Models/workshop/Review');
+const Workshop = require('../../Models/workshop/Workshop');
 
 // Fonction pour analyser le sentiment avec l'API Hugging Face
 const analyzeSentiment = async (comment) => {
@@ -38,7 +38,7 @@ exports.createReview = async (req, res) => {
     try {
         const { workshopId, userEmail, rating, comment } = req.body;
 
-        // Vérifier si le workshop existe
+        // Vérifier si le Workshop existe
         const workshop = await Workshop.findById(workshopId);
         if (!workshop) {
             return res.status(404).json({ message: "Workshop non trouvé" });
@@ -58,7 +58,7 @@ exports.createReview = async (req, res) => {
 
         await newReview.save();
 
-        // Mettre à jour la moyenne des avis du workshop
+        // Mettre à jour la moyenne des avis du Workshop
         await updateWorkshopRating(workshopId);
 
         res.status(201).json({ message: 'Avis créé avec succès', review: newReview });
@@ -73,7 +73,7 @@ exports.deleteReview = async (req, res) => {
     try {
         const { reviewId } = req.params;
 
-        // Trouver l'avis et le workshop
+        // Trouver l'avis et le Workshop
         const review = await Review.findById(reviewId);
         if (!review) {
             return res.status(404).json({ message: "Avis non trouvé" });
@@ -84,7 +84,7 @@ exports.deleteReview = async (req, res) => {
         // Supprimer l'avis
         await review.deleteOne();
 
-        // Mettre à jour la moyenne des avis du workshop
+        // Mettre à jour la moyenne des avis du Workshop
         await updateWorkshopRating(workshopId);
 
         res.json({ message: "Avis supprimé avec succès" });
@@ -94,16 +94,16 @@ exports.deleteReview = async (req, res) => {
     }
 };
 
-// Récupérer les avis d'un workshop
+// Récupérer les avis d'un Workshop
 exports.getWorkshopReviews = async (req, res) => {
     try {
         const { workshopId } = req.params;
 
-        // Récupérer les avis pour un workshop donné
+        // Récupérer les avis pour un Workshop donné
         const reviews = await Review.find({ workshopId }).populate('workshopId', 'title');
 
         if (!reviews.length) {
-            return res.status(404).json({ message: "Aucun avis trouvé pour ce workshop" });
+            return res.status(404).json({ message: "Aucun avis trouvé pour ce Workshop" });
         }
 
         res.json(reviews);
@@ -113,22 +113,22 @@ exports.getWorkshopReviews = async (req, res) => {
     }
 };
 
-// Mettre à jour la moyenne des avis d'un workshop
+// Mettre à jour la moyenne des avis d'un Workshop
 const updateWorkshopRating = async (workshopId) => {
     try {
-        // Récupérer tous les avis pour ce workshop
+        // Récupérer tous les avis pour ce Workshop
         const reviews = await Review.find({ workshopId });
 
         if (reviews.length === 0) {
             // Si aucun avis n'est trouvé, on ne met pas à jour la moyenne
-            console.log("Aucun avis trouvé pour ce workshop.");
+            console.log("Aucun avis trouvé pour ce Workshop.");
             return;
         }
 
         // Calculer la moyenne des avis
         const averageRating = reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length;
 
-        // Mettre à jour le workshop avec la nouvelle moyenne
+        // Mettre à jour le Workshop avec la nouvelle moyenne
         const workshop = await Workshop.findByIdAndUpdate(workshopId, { averageRating }, { new: true });
 
         if (!workshop) {
@@ -137,6 +137,6 @@ const updateWorkshopRating = async (workshopId) => {
             console.log(`Moyenne des avis mise à jour pour le workshop ${workshopId}: ${averageRating}`);
         }
     } catch (error) {
-        console.error("Erreur lors de la mise à jour du rating du workshop :", error);
+        console.error("Erreur lors de la mise à jour du rating du Workshop :", error);
     }
 };

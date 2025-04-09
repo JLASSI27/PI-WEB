@@ -1,5 +1,5 @@
-const Enrollment = require('../../models/workshop/Enrollment');
-const Workshop = require('../../models/workshop/Workshop');
+const Enrollment = require('../../Models/workshop/Enrollment');
+const Workshop = require('../../Models/workshop/Workshop');
 const nodemailer = require('nodemailer');
 
 // Fonction pour envoyer un email
@@ -16,7 +16,7 @@ const sendConfirmationEmail = async (email, status, workshopId = null) => {
         let subject = '';
         let message = '';
 
-        // Charger les infos du workshop si l'ID est fourni
+        // Charger les infos du Workshop si l'ID est fourni
         let workshopInfo = '';
         if (workshopId) {
             const workshop = await Workshop.findById(workshopId);

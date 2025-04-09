@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const enrollmentController = require('../../controllers/workshop/enrollmentController');
+const enrollmentController = require('../../Controllers/./Workshop/enrollmentController');
 
-// Vérifie que le contrôleur contient bien les fonctions avant d’ajouter les routes
+// Vérifie que le contrôleur contient bien les fonctions avant d’ajouter les Routes
 if (!enrollmentController.register) {
     console.error('❌ ERREUR: La fonction register est introuvable dans enrollmentController.');
 }
