@@ -10,7 +10,7 @@ const pack = new mongoose.Schema({
   
 });
 
-const Pack = mongoose.model("packs", pack);
+const Pack =  mongoose.model("packs", pack);
 const packSchema = yup.object({
     body: yup.object({
         Name: yup.string().min(3,"Le nom doit contenir au moins 3 caractères").required(),

@@ -1,8 +1,8 @@
 const express =  require('express');
 const router = express.Router();
-const {Reservation,reservSchema} = require('../models/reservation');
-const validate = require('../middelwares/validate');
-const { Event } = require('../models/event');
+const {Reservation,reservSchema} = require('../Models/reservation');
+const validate = require('../Middlewares/validate');
+const { Event } = require('../Models/event');
 const {addreservation,getreservation,getreservsByName,updateRsrv,deleteReservation} = require('../controllers/reservation/reservationController');
 
 

@@ -1,7 +1,7 @@
 const express =  require('express');
 const router = express.Router();
-const {Service,servicesSchema} = require('../models/service');
-const validate = require('../middelwares/validate');
+const {Service,servicesSchema} = require('../Models/service');
+const validate = require('../Middlewares/validate');
 const nodemailer = require("nodemailer");
 
 const {addservice , getservice,getserviceByPack,updateService,deleteService} = require('../controllers/service/serviceController');

@@ -1,9 +1,9 @@
 const express =  require('express');
 const router = express.Router();
-const {Event,eventsSchema} = require('../models/event');
-const validate = require('../middelwares/validate');
+const {Event,eventsSchema} = require('../Models/event');
+const validate = require('../Middlewares/validate');
 const {addevent,getevent,getEventByType,getEventByLieu,updateEvent,deleteEvent} = require('../controllers/event/eventController');
-const upload = require('../config/multer'); // ✅ l'import essentiel
+const upload = require('../Config/multer'); // ✅ l'import essentiel
 
 
 

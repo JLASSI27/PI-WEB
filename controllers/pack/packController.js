@@ -1,5 +1,5 @@
 const express =  require('express');
-const {Pack} = require('../../models/pack');
+const {Pack} = require('../../Models/pack');
 
 
 exports.addpacks = async (req , res, next)=>{

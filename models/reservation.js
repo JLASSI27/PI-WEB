@@ -11,7 +11,7 @@ const reservationSchema = new mongoose.Schema({
 });
 
 // Création du modèle de réservation
-const Reservation = mongoose.model("Reservation", reservationSchema);
+const Reservation =  mongoose.model("Reservation", reservationSchema);
 
 // Validation avec Yup pour la réservation
 const reservSchema = yup.object({

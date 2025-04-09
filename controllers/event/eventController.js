@@ -1,4 +1,4 @@
-const {Event} = require('../../models/event');
+const {Event} = require('../../Models/event');
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({

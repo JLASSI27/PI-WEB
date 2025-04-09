@@ -1,7 +1,7 @@
 const express =  require('express');
 const router = express.Router();
-const {Pack,packSchema} = require('../models/pack');
-const validate = require('../middelwares/validate');
+const {Pack,packSchema} = require('../Models/pack');
+const validate = require('../Middlewares/validate');
 
 const {addpacks,getpacks,getPackByName,updatePack,deletePack} = require('../controllers/pack/packController');
 
