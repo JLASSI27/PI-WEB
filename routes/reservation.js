@@ -3,7 +3,7 @@ const router = express.Router();
 const {Reservation,reservSchema} = require('../Models/reservation');
 const validate = require('../Middlewares/validate');
 const { Event } = require('../Models/event');
-const {addreservation,getreservation,getreservsByName,updateRsrv,deleteReservation} = require('../controllers/reservation/reservationController');
+const {addreservation,getreservation,getreservsByName,updateRsrv,deleteReservation} = require('../Controllers/reservation/reservationController');
 
 
 router.post('/reservation', validate(reservSchema), addreservation) 

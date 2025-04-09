@@ -1,10 +1,10 @@
 
 const {Service} = require('../../Models/service');
 const nodemailer = require("nodemailer");
-const { conn } = require('../../Config/gridfs');
+const { conn } = require('../../config/gridfs');
 const { GridFSBucket } = require('mongodb');
 const stream = require('stream');               
-const { getGfs } = require('../../Config/gridfs');
+const { getGfs } = require('../../config/gridfs');
 const PDFDocument = require('pdfkit');          // 👈 génération PDF
 const fs = require("fs");
 const path = require("path");

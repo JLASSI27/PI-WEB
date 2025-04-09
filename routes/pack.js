@@ -3,7 +3,7 @@ const router = express.Router();
 const {Pack,packSchema} = require('../Models/pack');
 const validate = require('../Middlewares/validate');
 
-const {addpacks,getpacks,getPackByName,updatePack,deletePack} = require('../controllers/pack/packController');
+const {addpacks,getpacks,getPackByName,updatePack,deletePack} = require('../Controllers/pack/packController');
 
 
 router.post('/packs', validate(packSchema), addpacks )

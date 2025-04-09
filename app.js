@@ -8,7 +8,7 @@ const cors = require('cors');
 
 
 const mongoose= require ("mongoose")
-const configDb = require ("./Config/db.json");
+const configDb = require ("./config/db.json");
 
 var eventsRouter = require('./Routes/event');
 var packsRouter = require('./Routes/pack');
