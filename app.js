@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const express = require('express');
 <<<<<<< HEAD
 const mongoose = require('mongoose');
@@ -64,30 +65,55 @@ app.get("/",  (req, res)=> {
 })
 
 =======
+=======
+>>>>>>> origin/Mouna-events
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+<<<<<<< HEAD
 const mongoose = require("mongoose");
 const configDb = require("./config/db.json");
 //const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc'); // Remplacez par votre propre clé secrète Stripe
 
 var produitRouter = require('./Routes/produit');
 var commandeRouter = require('./Routes/commande');
+=======
+const cors = require('cors');
+
+
+
+const mongoose= require ("mongoose")
+const configDb = require ("./Config/db.json");
+
+var eventsRouter = require('./Routes/event');
+var packsRouter = require('./Routes/pack');
+var reservsRouter = require('./Routes/reservation');
+var servicesRouter = require('./Routes/service');
+
+
+
+
+
+>>>>>>> origin/Mouna-events
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+<<<<<<< HEAD
 >>>>>>> origin/ghazi_nasri
+=======
+>>>>>>> origin/Mouna-events
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 app.use("/", indexRoutes);
@@ -190,18 +216,68 @@ db.on("disconnected", () => {
 });
 
 // Gestion des erreurs 404
+=======
+app.use(cors({
+  origin: 'http://localhost:4200', // URL de ton frontend Angular
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: 'Content-Type,Authorization'
+}));
+
+app.use('/uploads', express.static('uploads'));
+
+
+
+
+app.use('/', eventsRouter);
+app.use('/', packsRouter);
+app.use('/', reservsRouter);
+app.use('/', servicesRouter);
+
+
+
+
+
+
+
+
+// catch 404 and forward to error handler
+>>>>>>> origin/Mouna-events
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
+<<<<<<< HEAD
 // Gestion des erreurs globales
 app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
+=======
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+>>>>>>> origin/Mouna-events
   res.status(err.status || 500);
   res.render('error');
 });
 
+<<<<<<< HEAD
 module.exports = app;
 >>>>>>> origin/ghazi_nasri
+=======
+
+mongoose.connect(configDb.mongo.uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Connexion à MongoDB réussie !');
+  })
+  .catch((err) => {
+    console.error('Erreur de connexion à MongoDB :', err);
+  });
+
+
+module.exports = app;
+>>>>>>> origin/Mouna-events

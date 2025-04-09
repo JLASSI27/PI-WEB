@@ -1,5 +1,6 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   "mongo": {
     "uri": "mongodb://localhost:27017/blog"
   }
@@ -12,3 +13,11 @@
     
     }
 >>>>>>> origin/ghazi_nasri
+=======
+  "mongo": {
+    "uri": "mongodb://localhost:27017/Events"
+  }
+
+  
+}
+>>>>>>> origin/Mouna-events

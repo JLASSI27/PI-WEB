@@ -6,10 +6,14 @@
 
 var app = require('../app');
 <<<<<<< HEAD
+<<<<<<< HEAD
 var debug = require('debug')('esprit-user:server');
 =======
 var debug = require('debug')('evento:server');
 >>>>>>> origin/ghazi_nasri
+=======
+var debug = require('debug')('events:server');
+>>>>>>> origin/Mouna-events
 var http = require('http');
 
 /**
